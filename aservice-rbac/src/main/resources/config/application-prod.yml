@@ -1,0 +1,9 @@
+server:
+  port: 8041
+  servlet:
+    encoding:
+      charset: utf-8
+      force: false
+spring:
+  application:
+    name: aservice-rbac

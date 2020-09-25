@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="persistence-spring-boot-starter" />
+        <module name="aservice-sms" />
+        <module name="server-eureka" />
+        <module name="aservice-rbac" />
+        <module name="common-web-spring-boot-starter" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="acommon-web-spring-boot-starter" target="1.8" />
+      <module name="service-rbac" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="aservice-rbac" options="" />
+      <module name="aservice-sms" options="" />
+      <module name="common-web-spring-boot-starter" options="" />
+      <module name="server-eureka" options="" />
+      <module name="service-rbac" options="" />
+    </option>
+  </component>
+</project>
