@@ -14,10 +14,12 @@
     <artifactId>persistence-spring-boot-starter</artifactId>
     <name>持久层</name>
 
-<!--    <dependencies>-->
-<!--        <dependency>-->
-<!--            <groupId>org.mybatis</groupId>-->
-<!--            <artifactId>mybatis</artifactId>-->
-<!--        </dependency>-->
-<!--    </dependencies>-->
+    <dependencies>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.5.5</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 </project>

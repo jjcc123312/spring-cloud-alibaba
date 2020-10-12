@@ -1,5 +1,0 @@
-server:
-  port: 8042
-spring:
-  application:
-    name: aservice-sms

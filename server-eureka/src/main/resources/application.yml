@@ -7,20 +7,20 @@ spring:
     # \u5E94\u7528\u540D\u79F0\uFF0C\u4F1A\u5728Eureka\u4E2D\u4F5C\u4E3A\u670D\u52A1\u7684id\u6807\u8BC6\uFF08serviceId\uFF09
     name: eureka-server
 
-# \u6CE8\u518C\u4E2D\u5FC3\u914D\u7F6E
+# 注册中心配置
 eureka:
-  instance:
-    # \u4E3B\u673A\u540D\u79F0
-    hostname: localhost
   server:
-    # \u5173\u95EDEureka\u7684\u81EA\u6211\u4FDD\u62A4\u6A21\u5F0F\uFF1B\u5EFA\u8BAE\u53EA\u5728\u5F00\u53D1\u73AF\u5883\u4E2D\u4F7F\u7528
+    # 关闭Eureka的自我保护模式；建议只在开发环境中使用
     enable-self-preservation: false
+  instance:
+    # 主机名称
+    hostname: localhost
   client:
-    # \u662F\u5426\u6CE8\u518C\u5230\u670D\u52A1\u5668\u3002\u56E0\u4E3A\u4ED6\u672C\u8EAB\u5C31\u662F\u670D\u52A1\u5668\uFF0C\u6240\u4EE5\u65E0\u9700\u6CE8\u518C\u5230\u670D\u52A1\u5668
+    # 是否注册到服务器。因为他本身就是服务器，所以无需注册到服务器
     register-with-eureka: false
-    # \u662F\u5426\u83B7\u53D6\u6CE8\u518C\u4E2D\u5FC3\u7684\u6CE8\u518C\u4FE1\u606F
+    # 是否获取注册中心的注册信息
     fetch-registry: false
     serviceUrl:
-      # http://${eureka.instance.hostname}:${server.port}/eureka/ \u81EA\u5DF1\u4F5C\u4E3A\u670D\u52A1\u5668\uFF0C\u516C\u5E03\u51FA\u6765\u7684\u5730\u5740\u3002
-      # \u6BD4\u5982\u540E\u7EED\u67D0\u4E2A\u5FAE\u670D\u52A1\u8981\u628A\u81EA\u5DF1\u6CE8\u518C\u5230 eureka server, \u90A3\u4E48\u5C31\u8981\u4F7F\u7528\u8FD9\u4E2A\u5730\u5740\uFF1Ahttp://localhost:8761/eureka/
+      # http://${eureka.instance.hostname}:${server.port}/eureka/ 自己作为服务器，公布出来的地址。
+      # 比如后续某个微服务要把自己注册到 eureka server, 那么就要使用这个地址：http://localhost:8761/eureka/
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

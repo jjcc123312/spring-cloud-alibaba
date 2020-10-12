@@ -16,11 +16,31 @@
 
 	<dependencies>
 
+		<!-- 持久层模块 -->
+		<dependency>
+			<groupId>com.jjcc.zsl.cloud</groupId>
+			<artifactId>persistence-spring-boot-starter</artifactId>
+		</dependency>
+
+		<!-- 数据库连接池工具 -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid-spring-boot-starter</artifactId>
+		</dependency>
+
+		<!--Mysql依赖包-->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+
+		<!-- 通用模块 -->
 		<dependency>
 			<groupId>com.jjcc.zsl.cloud</groupId>
 			<artifactId>common-web-spring-boot-starter</artifactId>
 		</dependency>
 
+		<!-- mybatis-plus -->
 		<dependency>
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatis-plus-boot-starter</artifactId>
@@ -47,6 +67,13 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+
+		<!--eureka客户端 -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<build>
