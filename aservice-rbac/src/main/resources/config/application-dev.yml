@@ -73,4 +73,21 @@ eureka:
 
 aservice-rbac:
   ribbon:
-    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule # 设置ribbon负载均衡的策略
+    ConnectTimeout: 1000 # 请求的连接超时时间，单位：毫秒。默认为 1000
+    ReadTimeout: 1000 # 请求处理的超时时间，单位：毫秒。默认为 1000
+    OkToRetryOnAllOperations: true # 是否对所有操作都进行重试，默认为 false, 默认只对GET请求重试。。
+    MaxAutoRetries: 1 # 对当前服务的重试次数，默认为 1 次。
+    MaxAutoRetriesNextServer: 1 # 重新选择服务实例的次数，默认为 1 次。注意，不包含第 1 次哈。
+
+#该参数用来开启重试机制，默认也是true。
+#spring.cloud.loadbalancer.retry.enabled: true
+
+ribbon:
+  restclient:
+    enabled: true # ribbon开启重试
+  eager-load:
+    enabled: true
+    clients:      # 开启饥饿加载的ribbon客户端
+      - aservice-rbac
+
