@@ -33,6 +33,12 @@ spring:
       web-stat-filter:
         url-pattern: /*
         exclusions: "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*"
+  cloud:
+    nacos:
+      # Nacos 作为注册中心的配置项，对应 NacosDiscoveryProperties 配置类
+      discovery:
+        server-addr: 127.0.0.1:8848 # Nacos 服务器地址
+        namespace: 0e5f6cfa-a373-4bbd-8fe2-9d2211904e2b # nacos 命名空间 uta的 id
 
 # mybatis-plus
 mybatis-plus:
@@ -66,7 +72,3 @@ mybatis-plus:
       logic-delete-value: 1
       logic-not-delete-value: 0
 
-#eureka:
-#  client:
-#    service-url:
-#      defaultZone: http://localhost:8761/eureka/

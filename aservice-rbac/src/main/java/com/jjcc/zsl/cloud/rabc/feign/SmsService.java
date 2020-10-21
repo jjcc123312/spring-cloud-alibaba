@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author: Jjcc
  * @create: 2020-09-25 17:47
  */
-@FeignClient(value = "ASERVICE-SMS", path = "/api/sms")
+@FeignClient(value = "aservice-sms", path = "/api/sms")
 public interface SmsService {
 
     @PostMapping(value = "/sms/send")
