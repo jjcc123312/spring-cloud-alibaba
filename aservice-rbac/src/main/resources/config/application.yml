@@ -5,8 +5,8 @@ server:
       charset: utf-8
       force: false
 spring:
-  application:
-    name: aservice-rbac
+#  application:
+#    name: aservice-rbac
   freemarker:
     check-template-location: false
   profiles:
