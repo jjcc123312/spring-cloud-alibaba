@@ -1,14 +1,7 @@
 spring:
   application:
     name: aservice-rbac
-  cloud:
-    nacos:
-      discovery:
-        server-addr: 127.0.0.1:8848
-        namespace: 78af34d1-e0d2-42c6-ac4c-af049c19efd5
-      config:
-        server-addr: ${spring.cloud.nacos.discovery.server-addr}
-        file-extension: yaml   #nacos配置文件后缀，下文配置发布的时候会用到。注意是yaml，不是yml
-        group: DEFAULT_GROUP  #配置分组，默认分组是DEFAULT_GROUP
-        name: aservice-rbac # 使用的 Nacos 配置集的 dataId，默认为 spring.application.name
-        namespace: 78af34d1-e0d2-42c6-ac4c-af049c19efd5
+  freemarker:
+    check-template-location: false
+  jackson:
+    time-zone: GMT+8
