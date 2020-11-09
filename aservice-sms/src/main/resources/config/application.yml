@@ -1,18 +1,18 @@
-server:
-  port: 8042
-  servlet:
-    encoding:
-      charset: utf-8
-      force: false
-spring:
-  application:
-    name: aservice-sms
-  freemarker:
-    check-template-location: false
-  profiles:
-    active: dev
-  jackson:
-    time-zone: GMT+8
-
-        
-
+#server:
+#  port: 8042
+#  servlet:
+#    encoding:
+#      charset: utf-8
+#      force: false
+#spring:
+#  application:
+#    name: aservice-sms
+#  freemarker:
+#    check-template-location: false
+#  profiles:
+#    active: dev
+#  jackson:
+#    time-zone: GMT+8
+#
+#
+#

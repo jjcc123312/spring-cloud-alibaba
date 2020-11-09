@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: aservice-sms
+  freemarker:
+    check-template-location: false
+  jackson:
+    time-zone: GMT+8
