@@ -3,6 +3,7 @@ package com.jjcc.zsl.cloud.rabc.controller;
 import com.jjcc.zsl.cloud.rabc.domain.OrderProperties;
 import com.jjcc.zsl.cloud.rabc.feign.SmsService;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/api/user")
+@RefreshScope
 public class SysUserController {
 
     @Value(value = "${order.pay-timeout-seconds}") // @NacosValue(value = "${order.pay-timeout-seconds}")
