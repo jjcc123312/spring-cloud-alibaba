@@ -42,9 +42,9 @@ public class SysUserController {
     @GetMapping(value = "/pwd/reset")
     public ResponseEntity<Object> pwdreset(@RequestParam Integer userId) {
 //        sysuserService.pwdreset(userId);
-//        String val = smsService.send("123", "更换密码");
+        String val = smsService.send("123", "更换密码");
         String a = "payTimeoutSeconds: " + payTimeoutSeconds + "；createFrequencySeconds："
                 + createFrequencySeconds;
-        return new ResponseEntity<>(a, HttpStatus.OK);
+        return new ResponseEntity<>(val, HttpStatus.OK);
     }
 }
