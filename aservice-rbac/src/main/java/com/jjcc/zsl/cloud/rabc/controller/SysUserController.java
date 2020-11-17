@@ -2,6 +2,7 @@ package com.jjcc.zsl.cloud.rabc.controller;
 
 import com.jjcc.zsl.cloud.rabc.domain.OrderProperties;
 import com.jjcc.zsl.cloud.rabc.feign.SmsService;
+import com.jjcc.zsl.cloud.rabc.service.dto.DemoDTO;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
@@ -46,5 +47,32 @@ public class SysUserController {
         String a = "payTimeoutSeconds: " + payTimeoutSeconds + "；createFrequencySeconds："
                 + createFrequencySeconds;
         return new ResponseEntity<>(val, HttpStatus.OK);
+    }
+
+    @GetMapping("getDemoDTO")
+    public ResponseEntity<Object> getDemoDTO() {
+        DemoDTO demoDTO = new DemoDTO();
+        demoDTO.setPassword("123");
+        demoDTO.setUsername("jjcc");
+        DemoDTO demo = smsService.getDemo(demoDTO);
+        return new ResponseEntity<>(demo, HttpStatus.OK);
+    }
+
+    @GetMapping("postDemoDTO")
+    public ResponseEntity<Object> postDemoDTO() {
+        DemoDTO demoDTO = new DemoDTO();
+        demoDTO.setPassword("123");
+        demoDTO.setUsername("jjcc");
+        DemoDTO demo = smsService.postDemo(demoDTO);
+        return new ResponseEntity<>(demo,HttpStatus.OK);
+    }
+
+    @GetMapping("getDemoQuerMapp")
+    public ResponseEntity<Object> getDemoQuerMapp() {
+        DemoDTO demoDTO = new DemoDTO();
+        demoDTO.setPassword("123");
+        demoDTO.setUsername("jjcc");
+        DemoDTO demo = smsService.getDemoQuerMapp(demoDTO);
+        return new ResponseEntity<>(demo,HttpStatus.OK);
     }
 }

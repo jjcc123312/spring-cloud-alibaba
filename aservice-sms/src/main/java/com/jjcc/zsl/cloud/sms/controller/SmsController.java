@@ -1,11 +1,9 @@
 package com.jjcc.zsl.cloud.sms.controller;
 
+import com.jjcc.zsl.cloud.sms.service.dto.DemoDTO;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @className: SmsController.java
@@ -27,4 +25,25 @@ public class SmsController {
         String str = phoneNo + content + "。port：" + serverPort;
         return str;
     }
+
+    @GetMapping("/get_demo")
+    public DemoDTO getDemo(DemoDTO demoDTO) {
+        return demoDTO;
+    }
+
+    @PostMapping("/post_demo")
+    public DemoDTO postDemo(@RequestBody DemoDTO demoDTO) {
+        return demoDTO;
+    }
+
+    @PostMapping("/get_demo_querMapp")
+    public DemoDTO getDemoQuerMapp(DemoDTO demoDTO) {
+        return demoDTO;
+    }
 }
+
+
+
+
+
+

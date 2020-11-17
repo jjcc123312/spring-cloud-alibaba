@@ -36,3 +36,11 @@ feign:
       # 客户端配置
       aservice-rbac:
         loggerLevel: BASIC
+  # feign使用httpClient客户端
+  httpclient:
+    enabled: true
+    max-connections-per-route: 50
+    max-connections: 200
+  # hystrix
+#  hystrix:
+#    enabled: true
