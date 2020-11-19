@@ -44,3 +44,30 @@ feign:
   # hystrix
 #  hystrix:
 #    enabled: true
+
+
+hystrix:
+  command:
+#    default: # commandKey，局部配置中即是方法名，这里default即是全局
+#      # hystrix各种配置，可参考https://www.cnblogs.com/zhenbianshu/p/9630167.html
+#      circuitBreaker:
+#        enabled: true # 启动熔断
+#        requestVolumeThreshold: 20 # 20个请求触发熔断判断
+#        errorThresholdPercentage: 60  # 请求错误率超过60%触发熔断
+#        sleepWindowInMilliseconds: 300000 # 熔断后开始尝试恢复的时间
+    getUserName: # 单独对某个方法进行配置
+      metrics:
+        rollingStats:
+          timeInMilliseconds: 10000  # 统计窗口时间
+      circuitBreaker:
+        enabled: true # 启动熔断
+        requestVolumeThreshold: 20 # 20个请求触发熔断判断
+        errorThresholdPercentage: 60  # 请求错误率超过60%触发熔断
+        sleepWindowInMilliseconds: 30000 # 熔断后开始尝试恢复的时间
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000 # 超时时间
+
