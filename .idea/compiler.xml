@@ -7,10 +7,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="persistence-spring-boot-starter" />
-        <module name="common-web-spring-boot-starter" />
-        <module name="server-eureka" />
         <module name="aservice-rbac" />
+        <module name="server-eureka" />
+        <module name="persistence-spring-boot-starter" />
+        <module name="service-hystrix-dashboard" />
+        <module name="common-web-spring-boot-starter" />
         <module name="aservice-sms" />
       </profile>
     </annotationProcessing>
@@ -25,6 +26,7 @@
       <module name="aservice-sms" options="" />
       <module name="common-web-spring-boot-starter" options="" />
       <module name="server-eureka" options="" />
+      <module name="service-hystrix-dashboard" options="" />
       <module name="service-rbac" options="" />
     </option>
   </component>

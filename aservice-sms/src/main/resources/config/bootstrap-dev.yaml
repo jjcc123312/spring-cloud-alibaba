@@ -19,3 +19,9 @@ spring:
             group: DEFAULT_GROUP
 #        extension-configs:
 #          -
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh,health,hystrix.stream
