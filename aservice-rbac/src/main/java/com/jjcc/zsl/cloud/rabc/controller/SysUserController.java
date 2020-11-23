@@ -54,7 +54,8 @@ public class SysUserController {
         DemoDTO demoDTO = new DemoDTO();
         demoDTO.setPassword("123");
         demoDTO.setUsername("jjcc");
-        DemoDTO demo = smsService.getDemo(demoDTO);
+        ResponseEntity<Object> demo = smsService.getDemo(demoDTO);
+        System.out.println(demo.toString());
         return new ResponseEntity<>(demo, HttpStatus.OK);
     }
 

@@ -3,6 +3,8 @@ package com.jjcc.zsl.cloud.sms.controller;
 import com.jjcc.zsl.cloud.sms.service.dto.DemoDTO;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -27,8 +29,10 @@ public class SmsController {
     }
 
     @GetMapping("/get_demo")
-    public DemoDTO getDemo(DemoDTO demoDTO) {
-        return demoDTO;
+    public ResponseEntity<Object> getDemo(DemoDTO demoDTO) {
+        System.out.println(123);
+        int i = 1 / 0;
+        return new ResponseEntity<>(demoDTO, HttpStatus.OK);
     }
 
     @PostMapping("/post_demo")

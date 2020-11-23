@@ -42,8 +42,8 @@ feign:
     max-connections-per-route: 50
     max-connections: 200
   # hystrix
-#  hystrix:
-#    enabled: true
+  hystrix:
+    enabled: true
 
 
 hystrix:

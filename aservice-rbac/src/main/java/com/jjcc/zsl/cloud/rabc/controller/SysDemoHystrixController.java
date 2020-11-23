@@ -6,14 +6,13 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang.exception.ExceptionUtils;
-import org.omg.CORBA.TIMEOUT;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.concurrent.TimeUnit;
+import javax.annotation.Resource;
 
 /**
  * @className: SysDemoHystrixController.java
@@ -26,11 +25,8 @@ import java.util.concurrent.TimeUnit;
 @RequestMapping("/api/hystrix")
 public class SysDemoHystrixController {
 
-    private final SmsService smsService;
-
-    public SysDemoHystrixController(SmsService smsService) {
-        this.smsService = smsService;
-    }
+    @Resource
+    private SmsService smsService;
 
     /**
      * HystrixCommand注解：服务容错配置注解。注解配置方式大于配置文件方式
@@ -66,14 +62,15 @@ public class SysDemoHystrixController {
     }
 
     @GetMapping("userName")
-    @HystrixCommand(fallbackMethod = "getUserFallback", commandKey = "getUserName")
+    @HystrixCommand(commandKey = "getUserName")
     public ResponseEntity<Object> getUserName(String userId) throws InterruptedException {
 //        TimeUnit.SECONDS.sleep(2);
         log.info("[getUserName][准备调用getUserName 方法]");
         DemoDTO demoDTO = new DemoDTO();
         demoDTO.setUsername("jjcc");
         demoDTO.setPassword("123");
-        smsService.getDemo(demoDTO);
-        return new ResponseEntity<>("!!!", HttpStatus.OK);
+        ResponseEntity<Object> demo = smsService.getDemo(demoDTO);
+        System.out.println(demo.toString());
+        return demo;
     }
 }
