@@ -31,3 +31,17 @@ build/
 
 ### VS Code ###
 .vscode/
+
+.rebel.xml.bak
+aservice-rbac/.rebel.xml.bak
+aservice-rbac/src/main/resources/rebel.xml
+aservice-rbac/src/main/resources/static/
+aservice-rbac/src/main/resources/templates/
+aservice-sms/src/main/resources/rebel.xml
+aservice-sms/src/main/resources/static/
+aservice-sms/src/main/resources/templates/
+common-web-spring-boot-starter/src/test/
+persistence-spring-boot-starter/src/main/resources/
+persistence-spring-boot-starter/src/test/
+server-eureka/src/test/
+service-hystrix-dashboard/src/
