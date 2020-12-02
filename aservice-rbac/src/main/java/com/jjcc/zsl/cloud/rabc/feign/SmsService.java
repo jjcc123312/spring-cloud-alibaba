@@ -1,6 +1,7 @@
 package com.jjcc.zsl.cloud.rabc.feign;
 
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(value = "aservice-sms", path = "/api/sms")
 public interface SmsService {
 
-    @PostMapping(value = "/sms/send")
+    @GetMapping(value = "/sms/send")
     String send(@RequestParam("phoneNo") String phoneNo,
                                 @RequestParam("content") String content);
 }

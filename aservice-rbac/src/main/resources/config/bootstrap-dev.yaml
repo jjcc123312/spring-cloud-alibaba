@@ -19,3 +19,34 @@ spring:
             group: DEFAULT_GROUP
 #        extension-configs:
 #          -
+    # sentinel配置，配置类：SentinelProperties
+    sentinel:
+      enabled: true # 开启Sentinel
+      eager: true   # 是否饥饿加载，默认false
+      transport:
+        dashboard: 127.0.0.1:8774
+      filter:
+        # 设置使用需要使用sentinel的请求。sentinel通过springmvc的拦截器进行进行拦截
+        url-patterns:
+          - /**
+
+
+feign:
+  # Feign 客户端配置，对应 FeignClientProperties 配置属性类
+  client:
+    # config 配置项是 Map 类型。key 为 Feign 客户端的名字，value 为 FeignClientConfiguration 对象
+    config:
+      # 全局配置
+      default:
+        loggerLevel: BASIC
+      # 客户端配置
+#      aservice-rbac:
+#        loggerLevel: BASIC
+  # feign使用httpClient客户端
+  httpclient:
+    enabled: true
+    max-connections-per-route: 50
+    max-connections: 200
+  # hystrix
+  hystrix:
+    enabled: false

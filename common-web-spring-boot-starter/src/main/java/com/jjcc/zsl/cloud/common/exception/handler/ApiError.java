@@ -1,4 +1,4 @@
-package com.jjcc.common.exception.handler;
+package com.jjcc.zsl.cloud.common.exception.handler;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;

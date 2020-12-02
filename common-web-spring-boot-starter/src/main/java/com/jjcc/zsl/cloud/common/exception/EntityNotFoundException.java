@@ -1,4 +1,4 @@
-package com.jjcc.common.exception;
+package com.jjcc.zsl.cloud.common.exception;
 
 import org.springframework.util.StringUtils;
 

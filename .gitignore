@@ -45,3 +45,4 @@ persistence-spring-boot-starter/src/main/resources/
 persistence-spring-boot-starter/src/test/
 server-eureka/src/test/
 service-hystrix-dashboard/src/
+common-web-spring-boot-starter/src/main/resources/

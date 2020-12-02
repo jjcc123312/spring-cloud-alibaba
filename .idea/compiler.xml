@@ -8,14 +8,15 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="persistence-spring-boot-starter" />
-        <module name="aservice-sms" />
+        <module name="common-web-spring-boot-starter" />
         <module name="server-eureka" />
         <module name="aservice-rbac" />
-        <module name="common-web-spring-boot-starter" />
+        <module name="aservice-sms" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="acommon-web-spring-boot-starter" target="1.8" />
+      <module name="service-hystrix-dashboard" target="1.8" />
       <module name="service-rbac" target="1.8" />
     </bytecodeTargetLevel>
   </component>

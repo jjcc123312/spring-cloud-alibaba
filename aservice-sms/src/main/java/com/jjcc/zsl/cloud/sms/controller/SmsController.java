@@ -1,6 +1,6 @@
 package com.jjcc.zsl.cloud.sms.controller;
 
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/sms")
 public class SmsController {
 
-    @PostMapping(value = "/sms/send")
+    @GetMapping(value = "/sms/send")
     public String send(@RequestParam("phoneNo") String phoneNo,
                                 @RequestParam("content") String content){
         String str = phoneNo + content + "!!!!!!!";

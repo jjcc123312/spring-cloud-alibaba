@@ -19,3 +19,14 @@ spring:
             group: DEFAULT_GROUP
 #        extension-configs:
 #          -
+
+    # sentinel配置，配置类：SentinelProperties
+    sentinel:
+      enabled: true # 开启Sentinel
+      eager: true   # 是否饥饿加载，默认false
+      transport:
+        dashboard: 127.0.0.1:8774
+      filter:
+        # 设置使用需要使用sentinel的请求。sentinel通过springmvc的拦截器进行进行拦截
+        url-patterns:
+          - /**

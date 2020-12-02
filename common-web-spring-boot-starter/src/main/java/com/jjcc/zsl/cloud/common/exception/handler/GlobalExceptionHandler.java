@@ -1,9 +1,10 @@
-package com.jjcc.common.exception.handler;
+package com.jjcc.zsl.cloud.common.exception.handler;
 
-import com.jjcc.common.exception.BadRequestException;
-import com.jjcc.common.exception.EntityExistException;
-import com.jjcc.common.exception.EntityNotFoundException;
-import com.jjcc.common.util.ThrowableUtil;
+import com.alibaba.csp.sentinel.slots.block.BlockException;
+import com.jjcc.zsl.cloud.common.exception.BadRequestException;
+import com.jjcc.zsl.cloud.common.exception.EntityExistException;
+import com.jjcc.zsl.cloud.common.exception.EntityNotFoundException;
+import com.jjcc.zsl.cloud.common.util.ThrowableUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,8 +35,6 @@ public class GlobalExceptionHandler {
         return buildResponseEntity(ApiError.error(e.getMessage()));
     }
 
-
-
     /**
      * 处理自定义异常
      */
@@ -45,6 +44,13 @@ public class GlobalExceptionHandler {
         log.error(ThrowableUtil.getStackTrace(e));
         return buildResponseEntity(ApiError.error(e.getStatus(),e.getMessage()));
 	}
+
+	@ExceptionHandler(value = BlockException.class)
+	public ResponseEntity<ApiError> blockException(BlockException e) {
+        log.error(ThrowableUtil.getStackTrace(e));
+        return buildResponseEntity(ApiError.error("系统繁忙请稍后再试！"));
+    }
+
 
     /**
      * 处理 EntityExist
