@@ -7,11 +7,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="common-web-spring-boot-starter" />
+        <module name="aservice-rbac" />
+        <module name="server-eureka" />
         <module name="persistence-spring-boot-starter" />
         <module name="aservice-sms" />
-        <module name="server-eureka" />
-        <module name="aservice-rbac" />
-        <module name="common-web-spring-boot-starter" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
