@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * 服务熔断
  * @className: FusingDemotionDemoController.java
  * @program: alibaba-cloud-suduty
  * @author: Jjcc

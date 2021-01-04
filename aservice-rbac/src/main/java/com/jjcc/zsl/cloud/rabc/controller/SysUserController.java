@@ -60,6 +60,9 @@ public class SysUserController {
 
     @GetMapping(value = "/test")
     public ResponseEntity<Object> test() {
+        System.out.println("payTimeoutSeconds: " + payTimeoutSeconds);
+        System.out.println("createFrequencySeconds: " + createFrequencySeconds);
+
         return new ResponseEntity<>("!!!!!!!!!!", HttpStatus.OK);
     }
 
