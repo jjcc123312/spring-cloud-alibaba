@@ -1,6 +1,8 @@
 package com.jjcc.zsl.cloud.rabc.feign;
 
+import com.jjcc.zsl.cloud.rabc.feign.factory.DemoProviderFeignClientFallbackFactory;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,10 +14,13 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author: Jjcc
  * @create: 2020-09-25 17:47
  */
-@FeignClient(value = "aservice-sms", path = "/api/sms")
+@FeignClient(value = "aservice-sms", path = "/api/sms", fallbackFactory = DemoProviderFeignClientFallbackFactory.class)
 public interface SmsService {
 
     @GetMapping(value = "/sms/send")
     String send(@RequestParam("phoneNo") String phoneNo,
                                 @RequestParam("content") String content);
+
+    @GetMapping(value = "/sms/echo")
+    ResponseEntity<String> echo();
 }

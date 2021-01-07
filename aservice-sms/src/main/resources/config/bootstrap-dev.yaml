@@ -25,8 +25,18 @@ spring:
       enabled: true # 开启Sentinel
       eager: true   # 是否饥饿加载，默认false
       transport:
-        dashboard: 127.0.0.1:8774
+        dashboard: 127.0.0.1:8080
       filter:
         # 设置使用需要使用sentinel的请求。sentinel通过springmvc的拦截器进行进行拦截
         url-patterns:
           - /**
+      datasource:
+        flow:
+          nacos:
+            namespace: 78af34d1-e0d2-42c6-ac4c-af049c19efd5
+            server-addr: localhost:8848
+            dataId: ${spring.application.name}-flow-rules
+            groupId: SENTINEL_GROUP
+            username: nacos
+            password: nacos
+            ruleType: flow
