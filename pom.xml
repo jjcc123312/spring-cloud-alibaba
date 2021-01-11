@@ -15,6 +15,7 @@
     <module>common-web-spring-boot-starter</module>
     <module>persistence-spring-boot-starter</module>
     <module>server-eureka</module>
+    <module>server-gateway</module>
   </modules>
 
   <properties>
