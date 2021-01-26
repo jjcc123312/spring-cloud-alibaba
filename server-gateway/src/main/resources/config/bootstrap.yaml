@@ -1,8 +1,9 @@
 server:
-  port: 8041
+  port: 8777
+
 spring:
   application:
-    name: aservice-rbac
+    name: server-gateway
   freemarker:
     check-template-location: false
   jackson:
