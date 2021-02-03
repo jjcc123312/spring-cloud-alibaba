@@ -27,7 +27,6 @@ public class SmsController {
     @GetMapping(value = "/sms/echo")
     public ResponseEntity<String> echo() {
         System.out.println("!!!!");
-        int i = 1 / 0;
         return new ResponseEntity<>("成功！！！", HttpStatus.OK);
     }
 }

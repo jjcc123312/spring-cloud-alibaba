@@ -19,17 +19,16 @@ public class RouteLocatorConfig {
 
     @Bean
     public RouteLocator customerRouteLocator(RouteLocatorBuilder builder) {
-        RouteLocator testConfig = builder.routes()
+        return builder.routes()
                 .route(p ->
                         // 谓词
-                        p.after(ZonedDateTime.now()).and().path("/fluent/customer/**")
+                        p.path("/fluent/customer/**")
                                 // 过滤器
                                 .filters(f -> f.stripPrefix(2))
-                                .uri("")
+                                .uri("https://wwww.baidu.com")
                                 .id("testConfig")
                                 .order(0)
                 ).build();
-        return testConfig;
     }
 }
 

@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -59,7 +61,8 @@ public class SysUserController {
     }
 
     @GetMapping(value = "/test")
-    public ResponseEntity<Object> test() {
+    public ResponseEntity<Object> test(HttpServletRequest request) {
+        String header = request.getHeader("user-id");
         System.out.println("payTimeoutSeconds: " + payTimeoutSeconds);
         System.out.println("createFrequencySeconds: " + createFrequencySeconds);
 
