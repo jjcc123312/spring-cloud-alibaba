@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
 import javax.servlet.http.HttpServletRequest;
 
 /**
+ *
+ * 黑白名单功能
  * 定义了 RequestOriginParser 接口，从请求中解析到调用来源，例如说使用 IP、请求头 user、请求头 appName。
  * @className: CustomRequestOriginParser.java
  * @program: alibaba-cloud-suduty

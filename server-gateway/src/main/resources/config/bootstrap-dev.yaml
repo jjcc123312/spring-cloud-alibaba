@@ -18,17 +18,19 @@ spring:
         locator:
           # 注册到注册中心
           enabled: true
-          url-expression: "'lb://' + serviceId" # 路由的目标地址的表达式，默认为 "'lb://' + serviceId"
-#      routes:
-#        - id: test # 路由的编号
-#          uri: http://www.iocoder.cn # 路由到的目标地址
-#          predicates:
-#            - Path=/blog # 断言，作为路由的匹配条件，对应 RouteDefinition 数组
-#          filters:
-#            - StripPrefix=1 # 过滤器，对请求进行拦截，实现自定义的功能，对应 FilterDefinition 数组
-#        - id: oschina
-#          uri: https://www.oschina.net
-#          predicates:
-#            - Path=/oschina
-#          filters:
-#            - StripPrefix=1 # 对应的具体实现是 `StripPrefixGatewayFilterFactory`，可以接收一个非负整数，作用是去掉url的层数，整数即对应层数。
+    sentinel:
+      enabled: true
+      eager: true # 饥饿加载开启
+      transport:
+        dashboard: 127.0.0.1:8080 # Sentinel 控制台地址
+      filter:
+        url-patterns: /** # 拦截请求的地址。默认为 /*
+      scg: # Sentinel 对 Spring Cloud Gateway 的专属配置项，对应 SentinelGatewayProperties 类
+        order: -2147483648 # 过滤器顺序，默认为 -2147483648 最高优先级
+        fallback:
+          mode: # fallback 模式，目前有三种：response、redirect、空
+          # 专属 response 模式
+          response-status: 429 # 响应状态码，默认为 429
+          response-body: 你被 block 了... # 响应内容，默认为空
+          content-type: application/json # 内容类型，默认为 application/json
+          redirect: https://www.baidu.com  # 专属 redirect 模式
